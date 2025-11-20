@@ -4,6 +4,18 @@ import java.util.*;
 
 public class EmployeeManager {
     public static void main(String[] args) {
+
+        if (args.length != 1) {
+        System.out.println("Error: Please provide exactly one argument.");
+        System.out.println("Usage examples:");
+        System.out.println("  java EmployeeManager l");
+        System.out.println("  java EmployeeManager s");
+        System.out.println("  java EmployeeManager +Name");
+        System.out.println("  java EmployeeManager ?Name");
+        System.out.println("  java EmployeeManager c");
+        return;
+    }
+
         // Check arguments
         if (args[0].equals("l")) {
             System.out.println("Loading data ...");
