@@ -4,15 +4,29 @@ import java.util.*;
 
 public class EmployeeManager {
     public static void main(String[] args) {
+
+        if (args.length != 1) {
+        System.out.println("Error: Please provide exactly one argument.");
+        System.out.println("Usage examples:");
+        System.out.println("  java EmployeeManager l");
+        System.out.println("  java EmployeeManager s");
+        System.out.println("  java EmployeeManager +Name");
+        System.out.println("  java EmployeeManager ?Name");
+        System.out.println("  java EmployeeManager c");
+        return;
+    }
+
+    
         // Check arguments
-        if (args[0].equals("l")) {
+
+        if (args[0].equals("line")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader r = new BufferedReader( new InputStreamReader(new FileInputStream("employees.txt")));
-                String l = r.readLine();
-                String e[] = l.split(",");
-                for (String emp : e) {
-                    System.out.println(emp);
+                BufferedReader reader = new BufferedReader( new InputStreamReader(new FileInputStream("employees.txt")));
+                String line = reader.readLine();
+                String employees[] = line.split(",");
+                for (String employee : employees) {
+                    System.out.println(employee);
                 }
             }
              catch (Exception e) {}
